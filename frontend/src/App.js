@@ -1,23 +1,28 @@
-import { BrowserRouter as Router, Routes, Route,Navigate } from "react-router-dom";
+
 import HomePage from "./pages/HomePage";
 import './App.css';
-import Signup from "./components/Singup";
-import Login from "./components/Login";
+import LoginButton from "./components/LoginButton";
+
+import { useAuth0 } from "@auth0/auth0-react";
 
 
 function App() {
-  const user = localStorage.getItem("token");
+  const { isLoading, error } = useAuth0();
 
   
   return (
-    <Router>
-      <Routes>
-      {user && <Route path="/" exact element={<HomePage />} />}
-			<Route path="/signup" exact element={<Signup />} />
-			<Route path="/login" exact element={<Login />} />
-			<Route path="/" element={<Navigate replace to="/login" />} />
-      </Routes>
-    </Router>
+    <main className="column">
+      
+      {error && <p>Authentication Error</p>}
+      {!error && isLoading && <p>Loading...</p>}
+      {!error && !isLoading && (
+        <>
+          <LoginButton />
+          
+          <HomePage />
+        </>
+      )}
+    </main>
   );
 }
 

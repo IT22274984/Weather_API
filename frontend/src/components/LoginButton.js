@@ -1,10 +1,14 @@
-import React from "react";
+import { useAuth0 } from '@auth0/auth0-react';
 import image from "../assets/images/weather.jpg";
-import SearchForm from "./SearchForm";
 
-function HeroSection() {
-  return (
-    <section
+const LoginButton = () => {
+    const { loginWithRedirect, isAuthenticated } = useAuth0();
+
+    return (
+        
+        !isAuthenticated && (
+            <>
+            <section
       className="relative bg-cover bg-center h-screen text-white flex flex-col justify-between"
       style={{
         backgroundImage: `linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8)), url(${image})`,
@@ -19,19 +23,18 @@ function HeroSection() {
           Embark on a journey like never before. Enjoy exclusive deals and
           unparalleled comfort.
         </p>
-
-        {/* Search Form */}
-      <div className="absolute z-10 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 sm:top-3/4 w-full max-w-5xl mx-auto px-6 sm:px-4">
-        <div className="bg-white rounded-lg shadow-xl p-8 sm:p-6">
-          <SearchForm />
-        </div>
-      </div>
-        
+        <button onClick={() => loginWithRedirect()}>
+                Login
+            </button>
       </div>
       
       
     </section>
-  );
+            
+            </>
+        )
+        
+    )
 }
 
-export default HeroSection;
+export default LoginButton

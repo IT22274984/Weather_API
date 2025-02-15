@@ -1,13 +1,12 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useAuth0 } from "@auth0/auth0-react";
 
 function Header() {
   const navigate = useNavigate();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const handleLogout = () => {
-		localStorage.removeItem("token");
-		window.location.reload();
-	};
+  
+  const { logout} = useAuth0();
 
   return (
     <header className="bg-gray-900 text-white">
@@ -58,16 +57,16 @@ function Header() {
             </li>
           </ul>
 
+           
           {/* Buttons for Mobile - Dropdown */}
           <div className="flex flex-col md:flex-row md:space-x-4 space-y-4 md:space-y-0 text-center md:text-left mt-4 md:mt-0">
-            <button className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-pink-600 hover:to-purple-600 px-6 py-3 rounded-full text-lg font-bold shadow-lg transition-all duration-300 transform hover:scale-105" onClick={handleLogout}>
+          
+            <button className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-pink-600 hover:to-purple-600 px-6 py-3 rounded-full text-lg font-bold shadow-lg transition-all duration-300 transform hover:scale-105" onClick={() => logout()}>
               Logout
-            </button>
-            <button className="bg-gray-800 hover:bg-gray-700 px-6 py-3 rounded-full text-lg font-bold transition-all duration-300 transform hover:scale-105">
-              
             </button>
           </div>
         </div>
+          
       </nav>
 
       {/* Mobile Navigation Overlay */}

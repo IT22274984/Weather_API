@@ -1,6 +1,11 @@
-Enter to the frontent file  ----- npm install --- next  ---- npm start
+download the redis server from    https://github.com/microsoftarchive/redis/releases        and extract that file and Open command prompt and enter the extracted redis server file path then enter " redis-server "      after that 
 
-Enter to the backend  file ----- npm install --- next  ---- npm start
+go to the backend  file 
+----- npm install --- next  ---- npm start
+
+
+
+go to the frontent file  ----- npm install --- next  ---- npm start
 
 
 

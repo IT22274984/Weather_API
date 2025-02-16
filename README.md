@@ -7,6 +7,8 @@ Enter to the backend  file ----- npm install --- next  ---- npm start
 <img width="959" alt="Screenshot 2025-02-17 024448" src="https://github.com/user-attachments/assets/19c1f95e-36c1-4789-9b1c-722c64aec114" />
 
 
+<img width="959" alt="Screenshot 2025-02-17 025323" src="https://github.com/user-attachments/assets/0d4385b2-c7df-4240-ad60-d512acc297ae" />
+
 
 <img width="959" alt="Screenshot 2025-02-17 024048" src="https://github.com/user-attachments/assets/1c06e3a7-6dea-489b-a1f9-203aac79e007" />
 

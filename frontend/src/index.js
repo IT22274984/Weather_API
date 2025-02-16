@@ -8,6 +8,8 @@ import { Auth0Provider } from "@auth0/auth0-react";
 
 const domain = process.env.REACT_APP_AUTH0_DOMAIN;
 const clientId = process.env.REACT_APP_AUTH0_CLIENT_ID;
+const callbackUrl = process.env.REACT_APP_AUTH0_CALLBACK_URL || window.location.origin;
+
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -16,7 +18,7 @@ root.render(
     <Auth0Provider
       domain={domain}
       clientId={clientId}
-      authorizationParams={{ redirect_uri: window.location.origin }}
+      authorizationParams={{ redirect_uri: callbackUrl }}
     >
       <App />
     </Auth0Provider>
